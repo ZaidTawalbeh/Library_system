@@ -1,0 +1,114 @@
+<div class="row">
+  <div class="d-flex align-items-stretch">
+    <div class="card w-100">
+      <!-- Filter buttons for testimonial status -->
+      <div style="display: flex; width: 100%; justify-content: start">
+        <button
+          type="button"
+          class="btn btn-primary m-1"
+          (click)="onFilterChange('Accepted')"
+        >
+          Accepted
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary m-1"
+          (click)="onFilterChange('Pending')"
+        >
+          Pending
+        </button>
+      </div>
+
+      <div class="card-body p-4">
+        <!-- Search input field for filtering testimonials by email -->
+        <div class="mb-3">
+          <input
+            [(ngModel)]="searchTerm"
+            class="form-control"
+            type="text"
+            placeholder="Search by Sender Name"
+            aria-placeholder="Search by Sender Name"
+          />
+        </div>
+
+        <h5 class="card-title fw-semibold mb-4">
+          {{ filter === "" ? "All" : filter }} Testimonials
+        </h5>
+
+        <!-- Testimonials table -->
+        <div class="table-responsive">
+          <table class="table text-nowrap mb-0 align-middle">
+            <thead class="text-dark fs-4">
+              <tr>
+                <!-- <th class="border-bottom-0">
+                  <h6 class="fw-semibold mb-0">ID</h6>
+                </th> -->
+                <th class="border-bottom-0">
+                  <h6 class="fw-semibold mb-0">Sender Name</h6>
+                </th>
+                <th class="border-bottom-0">
+                  <h6 class="fw-semibold mb-0">Title</h6>
+                </th>
+                <th class="border-bottom-0">
+                  <h6 class="fw-semibold mb-0">Rating</h6>
+                </th>
+                <th class="border-bottom-0">
+                  <h6 class="fw-semibold mb-0">Message</h6>
+                </th>
+                <th class="border-bottom-0">
+                  <h6 class="fw-semibold mb-0">Actions</h6>
+                </th>
+              </tr>
+            </thead>
+
+            <!-- Testimonials data -->
+            <tbody>
+              <tr *ngFor="let testimonial of GetTestimoinals">
+                <!-- <td class="border-bottom-0">
+                  <h6 class="fw-semibold mb-0">
+                    {{ testimonial.testimonialid }}
+                  </h6>
+                </td> -->
+                <td class="border-bottom-0">
+                  <h6 class="fw-semibold mb-1">
+                    {{ testimonial.firstname + " " + testimonial.lastname }}
+                  </h6>
+                </td>
+
+                <td class="border-bottom-0">
+                  <h6 class="fw-semibold mb-1">{{ testimonial.message }}</h6>
+                </td>
+                <td class="border-bottom-0">
+                  <h6 class="fw-semibold mb-1">{{ testimonial.rate }}</h6>
+                </td>
+                <td class="border-bottom-0">
+                  <h6 class="fw-semibold mb-1">{{ testimonial.message }}</h6>
+                </td>
+                <td class="border-bottom-0">
+                  <!-- Conditionally render button based on status -->
+                  <button
+                    (click)="onAcceptTestimonial(testimonial.testimonialid)"
+                    *ngIf="filter === 'Pending'"
+                    type="button"
+                    class="btn btn-primary m-1"
+                    style="background-color: rgb(44, 196, 44)"
+                  >
+                    Accept
+                  </button>
+                  <button
+                    (click)="onDeleteTestimonial(testimonial.testimonialid)"
+                    type="button"
+                    class="btn btn-primary m-1"
+                    style="background-color: red"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

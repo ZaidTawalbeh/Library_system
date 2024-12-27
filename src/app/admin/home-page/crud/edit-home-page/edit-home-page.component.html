@@ -1,0 +1,78 @@
+<div class="homepage-container">
+  <!-- Show loading spinner -->
+  <div *ngIf="isLoading" class="spinner-container">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Show error message -->
+  <div *ngIf="isError" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Edit form if data is loaded -->
+  <form
+    *ngIf="!isLoading && !isError"
+    (ngSubmit)="onEditHomePage(homePageData)"
+  >
+    <div class="card">
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="pWelcome" class="form-label">Welcome Message</label>
+          <input
+            id="pWelcome"
+            [(ngModel)]="homePageData.p_WELCOME"
+            name="pWelcome"
+            class="form-control"
+            type="text"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="logoImage" class="form-label">Upload Logo Image</label>
+          <input
+            id="logoImage"
+            name="imagelogo"
+            type="file"
+            (change)="onFileSelected($event, 'logo')"
+            class="form-control"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="mainImage" class="form-label">Upload Main Image</label>
+          <input
+            id="mainImage"
+            name="imagemain"
+            type="file"
+            (change)="onFileSelected($event, 'main')"
+            class="form-control"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="pFooter" class="form-label">Footer Text</label>
+          <input
+            id="pFooter"
+            [(ngModel)]="homePageData.p_FOOTER"
+            name="pFooter"
+            class="form-control"
+            type="text"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="pCopyrigth" class="form-label">Copyright</label>
+          <input
+            id="pCopyrigth"
+            [(ngModel)]="homePageData.p_COPYRIGTH"
+            name="pCopyrigth"
+            class="form-control"
+            type="text"
+            required
+          />
+        </div>
+        <button class="btn btn-primary" type="submit">Save Changes</button>
+      </div>
+    </div>
+  </form>
+</div>

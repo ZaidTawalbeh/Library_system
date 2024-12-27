@@ -1,0 +1,62 @@
+<form [formGroup]="offerForm" (ngSubmit)="onCreateOffer()">
+  <div class="mb-3">
+    <label for="offerpercentage" class="form-label">Offer Percentage</label>
+    <input
+      id="offerpercentage"
+      formControlName="offerpercentage"
+      class="form-control"
+      type="number"
+      placeholder="Enter offer percentage"
+      min="1"
+      max="100"
+    />
+    <div
+      *ngIf="
+        offerForm.get('offerpercentage')?.invalid &&
+        (offerForm.get('offerpercentage')?.touched ||
+          offerForm.get('offerpercentage')?.dirty)
+      "
+    >
+      <small
+        class="text-danger"
+        *ngIf="offerForm.get('offerpercentage')?.hasError('required')"
+        >Offer percentage is required.</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="offerForm.get('offerpercentage')?.hasError('min')"
+        >Offer percentage must be at least 0.</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="offerForm.get('offerpercentage')?.hasError('max')"
+        >Offer percentage cannot exceed 100.</small
+      >
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="libraryid" class="form-label">Select Library</label>
+    <select id="libraryid" formControlName="libraryid" class="form-select">
+      <option value="" disabled>Select a library</option>
+      <option
+        *ngFor="let library of libraryQuery.data()"
+        [value]="library.libraryid"
+      >
+        {{ library.name }}
+        <!-- Assuming 'name' is the field for the library name -->
+      </option>
+    </select>
+    <div
+      *ngIf="
+        offerForm.get('libraryid')?.invalid &&
+        (offerForm.get('libraryid')?.touched ||
+          offerForm.get('libraryid')?.dirty)
+      "
+    >
+      <small class="text-danger">Please select a library.</small>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Create Offer</button>
+</form>

@@ -1,0 +1,28 @@
+<!-- Form to create a new category -->
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="categoryForm" (ngSubmit)="onCreateCategory()">
+      <div class="mb-3">
+        <label for="categoryname" class="form-label">Category Name</label>
+        <input
+          type="text"
+          id="categoryname"
+          formControlName="categoryname"
+          placeholder="Enter Category Name"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="imageFile" class="form-label">Upload Image</label>
+        <input
+          type="file"
+          id="imageFile"
+          (change)="onFileChange($event)"
+          accept="image/*"
+          class="form-control"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Create Category</button>
+    </form>
+  </div>
+</div>

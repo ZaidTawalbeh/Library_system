@@ -1,0 +1,38 @@
+<!-- Form to create a new author -->
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="authorForm" (ngSubmit)="onCreateAuthor()">
+      <div class="mb-3">
+        <label for="authorname" class="form-label">Author Name</label>
+        <input
+          type="text"
+          id="authorname"
+          formControlName="authorname"
+          placeholder="Enter Author Name"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="bio" class="form-label">Bio</label>
+        <textarea
+          id="bio"
+          formControlName="bio"
+          placeholder="Enter Bio"
+          class="form-control"
+          rows="4"
+        ></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Image</label>
+        <input
+          type="file"
+          id="image"
+          (change)="onFileChange($event)"
+          accept="image/*"
+          class="form-control"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Create Author</button>
+    </form>
+  </div>
+</div>

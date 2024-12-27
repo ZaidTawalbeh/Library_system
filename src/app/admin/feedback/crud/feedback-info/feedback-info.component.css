@@ -1,0 +1,6 @@
+.fixed-size-textarea {
+    resize: none; /* Prevent resizing */
+    /* Optionally, you can set a fixed width and height */
+    width: 100%;  /* Adjust as necessary */
+    height: auto; /* This allows it to automatically adjust based on rows */
+  }

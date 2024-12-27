@@ -1,0 +1,36 @@
+<!-- Form to edit an author -->
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="authorForm" (ngSubmit)="onEditAuthor()">
+      <div class="mb-3">
+        <label for="authorname" class="form-label">Author Name</label>
+        <input
+          type="text"
+          id="authorname"
+          formControlName="authorname"
+          placeholder="Enter Author Name"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="bio" class="form-label">Bio</label>
+        <textarea
+          id="bio"
+          formControlName="bio"
+          placeholder="Enter Bio"
+          class="form-control"
+          rows="4"
+        ></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input
+          type="file"
+          class="form-control"
+          (change)="onFileChange($event)"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Edit Author</button>
+    </form>
+  </div>
+</div>

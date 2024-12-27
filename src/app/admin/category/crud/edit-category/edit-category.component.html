@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>Edit Category</h2>
+
+  <!-- Category Form -->
+  <form [formGroup]="categoryForm" (ngSubmit)="onEditCategory()">
+    <!-- Category Name Field -->
+    <div class="form-group">
+      <label for="categoryname">Category Name</label>
+      <input
+        id="categoryname"
+        type="text"
+        class="form-control"
+        formControlName="categoryname"
+        placeholder="Enter category name"
+      />
+      <div
+        *ngIf="
+          categoryForm.get('categoryname')?.invalid &&
+          categoryForm.get('categoryname')?.touched
+        "
+      >
+        <small class="text-danger">Category name is required.</small>
+      </div>
+    </div>
+
+    <!-- Image Upload Field -->
+    <div class="form-group">
+      <label for="image">Category Image</label>
+      <input
+        id="image"
+        type="file"
+        class="form-control"
+        (change)="onFileChange($event)"
+      />
+      <!-- Display a preview if an image is selected -->
+      <!-- Image Preview in Template -->
+      <img
+        *ngIf="categoryForm.get('image')?.value"
+        [src]="categoryForm.get('image')?.value"
+        alt="Category Image Preview"
+        style="max-width: 200px; margin-top: 10px"
+      />
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="categoryForm.invalid"
+    >
+      Update Category
+    </button>
+  </form>
+</div>

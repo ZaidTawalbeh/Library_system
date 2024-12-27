@@ -1,0 +1,71 @@
+<div class="aboutus-container">
+  <!-- Show loading spinner -->
+  <div *ngIf="isLoading" class="spinner-container">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Show error message -->
+  <div *ngIf="isError" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Edit form if data is loaded -->
+  <form
+    *ngIf="!isLoading && !isError"
+    (ngSubmit)="onEditContactUs(contactUsData)"
+  >
+    <div class="card">
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="contactUsLocation" class="form-label">Location</label>
+          <input
+            id="contactUsLocation"
+            [(ngModel)]="contactUsData.location"
+            name="location"
+            class="form-control"
+            type="text"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="contactUsEmail" class="form-label">Email</label>
+          <input
+            id="contactUsEmail"
+            [(ngModel)]="contactUsData.email"
+            name="email"
+            class="form-control"
+            type="email"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="contactUsPhoneNumber" class="form-label"
+            >Phone Number</label
+          >
+          <input
+            id="contactUsPhoneNumber"
+            [(ngModel)]="contactUsData.phonenumber"
+            name="phonenumber"
+            class="form-control"
+            type="number"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="contactUsImage" class="form-label">Upload Image</label>
+          <input
+            id="contactUsImage"
+            name="image"
+            type="file"
+            (change)="onFileSelected($event)"
+            class="form-control"
+          />
+        </div>
+
+        <button class="btn btn-primary" type="submit">Save Changes</button>
+      </div>
+    </div>
+  </form>
+</div>

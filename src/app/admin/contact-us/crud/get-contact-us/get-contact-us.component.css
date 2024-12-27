@@ -1,0 +1,75 @@
+/* Main container styling */
+.aboutus-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f7f9fc;
+  }
+  
+  /* Card styling */
+  .card {
+    width: 100%;
+    max-width: 900px; /* Expands the card */
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+  
+  .card-body {
+    padding: 2rem;
+    text-align: center; /* Center content inside card */
+  }
+  
+  /* Label and text styling */
+  .form-label {
+    font-size: 1rem;
+    color: #6c757d;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #343a40;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  
+  p {
+    color: #495057;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Image styling */
+  .contact-image {
+    max-width: 80%; /* Keeps image responsive within the card */
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Spinner styling */
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Center error message */
+  .alert-danger {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+  }
+  

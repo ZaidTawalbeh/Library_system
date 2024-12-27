@@ -1,0 +1,130 @@
+<!-- Form to create a new book -->
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="bookForm" (ngSubmit)="onCreateBook()">
+      <div class="mb-3">
+        <label for="bookname" class="form-label">Book Name</label>
+        <input
+          type="text"
+          id="bookname"
+          formControlName="bookname"
+          placeholder="Enter Book Name"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="languages" class="form-label">Languages</label>
+        <input
+          type="text"
+          id="languages"
+          formControlName="languages"
+          placeholder="Enter Languages"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="numberofpages" class="form-label">Number of Pages</label>
+        <input
+          type="number"
+          id="numberofpages"
+          formControlName="numberofpages"
+          placeholder="Enter Number of Pages"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="releasedate" class="form-label">Release Date</label>
+        <input
+          type="date"
+          id="releasedate"
+          formControlName="releasedate"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="descriptions" class="form-label">Descriptions</label>
+        <textarea
+          id="descriptions"
+          formControlName="descriptions"
+          placeholder="Enter Descriptions"
+          class="form-control"
+          rows="4"
+        ></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Image</label>
+        <input
+          type="file"
+          id="image"
+          (change)="onFileChange($event)"
+          accept="image/*"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Quantity</label>
+        <input
+          type="number"
+          id="quantity"
+          formControlName="quantity"
+          placeholder="Enter Quantity"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="priceperday" class="form-label">Price Per Day</label>
+        <input
+          type="number"
+          id="priceperday"
+          formControlName="priceperday"
+          placeholder="Enter Price Per Day"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="authorid" class="form-label">Author</label>
+        <select
+          aria-placeholder="Select Author"
+          id="authorid"
+          formControlName="authorid"
+          class="form-control"
+        >
+          <option disabled value="" selected>Select Author</option>
+          <option *ngFor="let author of AuthorsData" [value]="author.authorid">
+            {{ author.authorname }}
+          </option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="categoryid" class="form-label">Category</label>
+        <select
+          aria-placeholder="Select Category"
+          id="categoryid"
+          formControlName="categoryid"
+          placeholder="Enter Category ID"
+          class="form-control"
+        >
+          <option disabled value="" selected>Select Author</option>
+          <option
+            *ngFor="let category of CategoriesData"
+            [value]="category.categoryid"
+          >
+            {{ category.categoryname }}
+          </option>
+        </select>
+      </div>
+
+      <!-- <div class="mb-3">
+        <label for="libraryid" class="form-label">Library ID</label>
+        <input
+          type="number"
+          id="libraryid"
+          formControlName="libraryid"
+          placeholder="Enter Library ID"
+          class="form-control"
+        />
+      </div> -->
+      <button type="submit" class="btn btn-primary">Create Book</button>
+    </form>
+  </div>
+</div>

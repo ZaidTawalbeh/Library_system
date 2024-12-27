@@ -1,0 +1,15 @@
+.return-btn {
+    background-color: rgb(15, 224, 15);
+    padding: 6px 8px;
+    border-radius: 30px;
+    outline: white;
+    border-color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for both */
+}
+
+.return-btn:hover {
+    transform: translateY(-10px);
+    color: white;
+    background-color: rgb(10, 200, 10); /* Optional: change background color on hover */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+}

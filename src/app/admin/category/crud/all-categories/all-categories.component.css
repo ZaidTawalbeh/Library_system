@@ -1,0 +1,89 @@
+/* Main container styling for table */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 2rem;
+  }
+  
+  /* Table styling */
+  .table-responsive {
+    margin-top: 2rem;
+  }
+  
+  .table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  .table th,
+  .table td {
+    text-align: center;
+  }
+  
+  .table th {
+    background-color: #f8f9fa;
+    color: #343a40;
+    font-weight: 600;
+  }
+  
+  .table td {
+    vertical-align: middle;
+  }
+  
+  /* Styling for the search input */
+  input.form-control {
+    max-width: 400px;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Styling for icons with scaling on hover */
+  .category-icon {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    max-width: 120px; /* Ensures all images are the same width */
+    height: auto;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+
+
+
+  .category-icon:hover {
+    transform: scale(4); /* Scales image by 20% */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Adds a larger shadow on hover */
+  }
+  
+  /* Styling for buttons */
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Styling for when no data is found */
+  .mt-3 {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #6c757d;
+  }
+  

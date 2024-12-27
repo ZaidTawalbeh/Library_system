@@ -1,0 +1,71 @@
+<div class="card" style="width: 100%; max-width: 400px; margin: auto">
+  <!-- Profile Image at the top -->
+  <div class="text-center mt-4">
+    <img
+      *ngIf="adminData.image"
+      [src]="IMGPATH + adminData.image"
+      alt="Profile Image"
+      class="rounded-circle img-fluid"
+      style="width: 120px; height: 120px; object-fit: cover"
+    />
+  </div>
+
+  <div class="card-body">
+    <form>
+      <div class="mb-3">
+        <label for="firstname" class="form-label">First Name</label>
+        <input
+          type="text"
+          id="firstname"
+          [value]="adminData.firstname"
+          class="form-control"
+          readonly
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input
+          type="text"
+          id="lastname"
+          [value]="adminData.lastname"
+          class="form-control"
+          readonly
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          id="email"
+          [value]="adminData.email"
+          class="form-control"
+          readonly
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="phonenumber" class="form-label">Phone Number</label>
+        <input
+          type="text"
+          id="phonenumber"
+          [value]="adminData.phonenumber"
+          class="form-control"
+          readonly
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <textarea
+          id="address"
+          class="form-control"
+          rows="3"
+          [value]="adminData.address"
+          readonly
+        ></textarea>
+      </div>
+    </form>
+  </div>
+</div>
